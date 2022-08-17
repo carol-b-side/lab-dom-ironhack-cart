@@ -32,7 +32,8 @@ function calculateAll() {
   }
 
   // ITERATION 3
-  //... your code goes here
+  let totalValue = document.getElementById("total-value");
+  totalValue.innerHTML = total;
 }
 
 // ITERATION 4
