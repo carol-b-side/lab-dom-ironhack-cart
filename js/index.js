@@ -41,18 +41,42 @@ function calculateAll() {
 function removeProduct(event) {
   const target = event.currentTarget;
   console.log('The target in remove is:', target);
-  //... your code goes here
+
+  const remove = target.parentNode.parentNode;
+  // removeChild(remove);
+  //Uncaught DOMException: Node.removeChild: The node to be removed is not a child of this node => ???
+
+  if (remove) {
+    remove.parentNode.removeChild(remove);
+  }
+
+  // let product = target;
+  // if (product.parentNode.parentNode) {
+  //   product.parentNode.parentNode.removeChild(product);
+  // }
+  // for (let i = 0; i < product.length; i++) {
+  //   if (product.parentNode) {
+  //     product.parentNode.removeChild(product[i]);
+  //   }
+
+  // }
+
+
 }
 
 // ITERATION 5
 
 function createProduct() {
-  //... your code goes here
+
 }
 
 window.addEventListener('load', () => {
   const calculatePricesBtn = document.getElementById('calculate');
   calculatePricesBtn.addEventListener('click', calculateAll);
 
-  //... your code goes here
+  const removeBtn = document.querySelectorAll(".btn-remove");
+  for (let i = 0; i < removeBtn.length; i++) {
+    removeBtn[i].addEventListener("click", removeProduct);
+  }
+
 });
